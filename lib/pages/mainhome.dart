@@ -106,7 +106,8 @@ class _HomeState extends State<Home> {
                   )),
             ),
             sizedBoxGap(),
-            buildTypeRow()
+            buildTypeRow(),
+            sizedBoxGap()
           ],
         ),
       ),
