@@ -1,5 +1,8 @@
+import 'package:experienceapp/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:experienceapp/models/models.dart';
+
+import 'chat.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -210,16 +213,48 @@ horizontalListView() {
         return Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(left: 25, right: 8),
+              padding: const EdgeInsets.only(left: 25, right: 0),
               child: Container(
                 height: 180,
                 width: 100,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    places[index].imagePath,
-                    fit: BoxFit.cover,
-                  ),
+                child: GestureDetector(
+                  onTap: () {
+                    print("Button tapped");
+                  },
+                  child: Stack(children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                              image: AssetImage(places[index].imagePath),
+                              fit: BoxFit.fill)),
+                      height: 170,
+                      width: 95,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 120,
+                        ),
+                        Text(
+                          places[index].name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text(
+                          places[index].distance,
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+
+                    // ClipRRect(
+                    //   borderRadius: BorderRadius.circular(10),
+                    //   child: Image.asset(
+                    //     places[index].imagePath,
+                    //     fit: BoxFit.cover,
+                    //   ),
+                    // ),
+                  ]),
                 ),
               ),
             )
