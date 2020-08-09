@@ -119,6 +119,12 @@ class _HomeState extends State<Home> {
             ),
             sizedBoxGap(),
             horizontalListView(),
+            Text(
+              "\t\t\t\t\t\tFeatured",
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            bottomButton(),
           ],
         ),
       ),
@@ -231,21 +237,23 @@ horizontalListView() {
                       height: 170,
                       width: 95,
                     ),
-                    Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: 120,
-                        ),
-                        Text(
-                          places[index].name,
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Text(
-                          places[index].distance,
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
+
+                    Positioned(
+                      left: 10,
+                      top: 125,
+                      child: Text(
+                        places[index].name,
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
+                    Positioned(
+                      left: 10,
+                      top: 145,
+                      child: Text(
+                        places[index].distance,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
 
                     // ClipRRect(
                     //   borderRadius: BorderRadius.circular(10),
@@ -261,6 +269,41 @@ horizontalListView() {
           ],
         );
       },
+    ),
+  );
+}
+
+bottomButton() {
+  return Container(
+    height: 150,
+    child: GestureDetector(
+      onTap: () => print("Fishtail tapped"),
+      child: Stack(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      image: AssetImage('assets/fishtail.jpeg'),
+                      fit: BoxFit.cover)),
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 110,
+            child: Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                'Fishtail',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
+        ],
+      ),
     ),
   );
 }
