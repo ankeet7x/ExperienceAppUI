@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:experienceapp/models/models.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ Color _color = Colors.black12;
 class _HomeState extends State<Home> {
   TextEditingController _textController = TextEditingController();
   Color _buttonBG = Colors.black12;
+  ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +29,11 @@ class _HomeState extends State<Home> {
                   height: 4,
                 ),
                 Text(
-                  "Hello, Ankeet",
+                  "  Hello, Ankeet",
                   style: TextStyle(color: Colors.black45),
                 ),
                 Text(
-                  "Let's travel",
+                  "  Let's travel",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
@@ -62,7 +64,7 @@ class _HomeState extends State<Home> {
         child: ListView(
           children: <Widget>[
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Center(
               child: Container(
@@ -108,7 +110,12 @@ class _HomeState extends State<Home> {
             sizedBoxGap(),
             buildTypeRow(),
             sizedBoxGap(),
-            sizedBoxGap()
+            Text(
+              "         Popular experiences",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            sizedBoxGap(),
+            horizontalListView(),
           ],
         ),
       ),
@@ -188,5 +195,37 @@ buildTypeRow() {
 sizedBoxGap() {
   return SizedBox(
     height: 10,
+  );
+}
+
+horizontalListView() {
+  ScrollController scrollController;
+  return Container(
+    height: 200,
+    child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: places.length,
+      controller: scrollController,
+      itemBuilder: (context, int index) {
+        return Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(left: 25, right: 8),
+              child: Container(
+                height: 180,
+                width: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    places[index].imagePath,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            )
+          ],
+        );
+      },
+    ),
   );
 }
