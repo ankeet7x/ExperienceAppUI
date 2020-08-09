@@ -31,7 +31,7 @@ class _MainPageState extends State<MainPage> {
       body: _children[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey[10],
-        selectedItemColor: Colors.orange,
+        selectedItemColor: Colors.lightBlue,
         onTap: onItemTapped,
         currentIndex: _selectedIndex,
         showSelectedLabels: false,

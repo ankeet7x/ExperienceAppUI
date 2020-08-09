@@ -9,7 +9,7 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-Color _color = Colors.black12;
+Color _color = Colors.lightBlue;
 
 class _HomeState extends State<Home> {
   TextEditingController _textController = TextEditingController();
@@ -33,14 +33,14 @@ class _HomeState extends State<Home> {
                 ),
                 Text(
                   "  Hello, Ankeet",
-                  style: TextStyle(color: Colors.black45),
+                  style: TextStyle(color: Colors.lightBlue),
                 ),
                 Text(
                   "  Let's travel",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
-                      color: Colors.black87),
+                      color: Colors.lightBlue),
                 )
               ],
             ),
@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
                 icon: Icon(
                   Icons.notifications_none,
                   size: 40,
-                  color: Colors.black87,
+                  color: Colors.lightBlue,
                 ),
                 onPressed: null,
               ),
